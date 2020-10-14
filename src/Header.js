@@ -1,19 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Button from "@material-ui/core/Button";
 
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 
-import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg"
+import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg";
+
+// How to Fetch Data
+//same as fetching local storage data
+
+// const popular_movie_url =
+//   "https://api.themoviedb.org/3/movie/popular?api_key=b9e04ffd5a10a79d0459e43247be7805&language=en-US&include_adult=false";
+
 // func useStyles
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.common.white,
   },
   toolBar: {
-    minHeight: 72,
+    minHeight: "72px",
   },
   navTitle: {
     color: theme.palette.text.secondary,
@@ -24,8 +34,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const IMAGE_URL = "https://image.tmdb.org/t/p/w780/";
+
 function Header() {
   const classes = useStyles();
+  const [popularMovies, setPopularMovies] = useState([]);
+  useEffect(() => {
+    const popular_movie_url =
+      "https://api.themoviedb.org/3/movie/popular?api_key=b9e04ffd5a10a79d0459e43247be7805&language=en-US&include_adult=false";
+
+    fetch(popular_movie_url)
+      .then((response) => response.json())
+      .then((result) => {
+        setPopularMovies(result.results);
+      });
+  }, []);
+
   return (
     <header>
       <AppBar position="static" className={classes.appBar}>
@@ -41,6 +65,27 @@ function Header() {
           </Typography>
         </Toolbar>
       </AppBar>
+      <div>
+        {popularMovies.map((movie) => (
+          <div key={movie.id}>
+            <Card>
+              <CardMedia
+                style={{ height: 500 }}
+                image={`${IMAGE_URL}${movie.poster_path}`}
+                title={movie.title}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="h2">
+                  {movie.title}
+                </Typography>
+                <Typography variant="body2" color="textSecondary" component="p">
+                  {movie.overview}
+                </Typography>
+              </CardContent>
+            </Card>
+          </div>
+        ))}
+      </div>
     </header>
   );
 }
