@@ -6,8 +6,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
-//import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg"
-// func useStyles 
+import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg"
+// func useStyles
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.common.white,
@@ -30,7 +30,9 @@ function Header() {
     <header>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar className="classes.toolBar">
-          <div className={classes.logo}>{/* <Logo /> */}</div>
+          <div className={classes.logo}>
+            <Logo />
+          </div>
           <Typography variant="h6" className={classes.navTitle}>
             Movies
           </Typography>
