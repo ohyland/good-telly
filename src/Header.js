@@ -6,14 +6,21 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 
-import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg"
+import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg";
+
+// How to Fetch Data
+//same as fetching local storage data
+
+// const popular_movie_url =
+//   "https://api.themoviedb.org/3/movie/popular?api_key=b9e04ffd5a10a79d0459e43247be7805&language=en-US&include_adult=false";
+
 // func useStyles
 const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: theme.palette.common.white,
   },
   toolBar: {
-    minHeight: 72,
+    minHeight: "72px",
   },
   navTitle: {
     color: theme.palette.text.secondary,
@@ -26,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Header() {
   const classes = useStyles();
+
   return (
     <header>
       <AppBar position="static" className={classes.appBar}>
