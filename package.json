@@ -12,12 +12,13 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^6.4.2",
     "react-scripts": "3.4.3",
     "styled": "^1.0.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "build": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
     "format": "prettier ./src/* --write",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
