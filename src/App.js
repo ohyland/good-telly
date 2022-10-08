@@ -6,7 +6,7 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
 import PopularList from "./PopularList";
-import MuiAppBar from "./MuiAppBar";
+import NavBar from "./NavBar";
 import { Routes, Route } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +58,7 @@ function App() {
   return (
     <div>
       <CssBaseline />
-      <MuiAppBar />
+      <NavBar />
       <Container maxWidth="lg" className={classes.main}>
         <Routes>
           <Route

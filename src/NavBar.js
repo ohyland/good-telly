@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function MuiAppBar() {
+function NavBar() {
   const classes = useStyles();
 
   return (
@@ -51,4 +51,4 @@ function MuiAppBar() {
   );
 }
 
-export default MuiAppBar;
+export default NavBar;

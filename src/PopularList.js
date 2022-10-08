@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
 function PopularList({ items, listTitle }) {
   const classes = useStyles();
   const IMAGE_URL = "https://image.tmdb.org/t/p/w780/";
-  console.log(items);
+
   return (
     <Box p={4} component={Paper}>
       <Typography variant="h5" className={classes.sectionTitle}>
