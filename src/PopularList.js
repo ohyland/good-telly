@@ -10,6 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles((theme) => ({
   card: {
     heigth: "100%",
@@ -35,18 +37,20 @@ function PopularList({ items, listTitle }) {
           const title = item.title ? item.title : item.name;
           return (
             <Grid item xs={12} md={4} lg={3} key={item.id}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.cardMedia}
-                  image={`${IMAGE_URL}${item.backdrop_path}`}
-                  title={title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {title}
-                  </Typography>
-                </CardContent>
-              </Card>
+              <Link>
+                <Card className={classes.card}>
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={`${IMAGE_URL}${item.backdrop_path}`}
+                    title={title}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {title}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Link>
             </Grid>
           );
         })}
