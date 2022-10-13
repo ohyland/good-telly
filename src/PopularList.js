@@ -10,8 +10,6 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 
-const IMAGE_URL = "https://image.tmdb.org/t/p/w780/";
-
 const useStyles = makeStyles((theme) => ({
   card: {
     heigth: "100%",
@@ -24,6 +22,7 @@ const useStyles = makeStyles((theme) => ({
 
 function PopularList({ items, listTitle }) {
   const classes = useStyles();
+  const IMAGE_URL = "https://image.tmdb.org/t/p/w780/";
 
   return (
     <Box p={4} component={Paper}>

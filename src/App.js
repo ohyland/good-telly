@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 
 import { CssBaseline } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
-import { ReactComponent as Logo } from "./static/images/goodtelly-logo.svg";
 import PopularList from "./PopularList";
+import NavBar from "./NavBar";
+import { Routes, Route } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -34,6 +32,7 @@ function App() {
   const classes = useStyles();
   const [popularMovies, setPopularMovies] = useState([]);
   const [popularTVShows, setPopularTVShows] = useState([]);
+
   useEffect(() => {
     // fetch movies
     const popular_movie_url =
@@ -59,26 +58,32 @@ function App() {
   return (
     <div>
       <CssBaseline />
-      <AppBar position="static" className={classes.appBar}>
-        <Toolbar className={classes.toolBar}>
-          <div className={classes.logo}>
-            <Logo />
-          </div>
-          <Typography variant="h6" className={classes.navTitle}>
-            Movies
-          </Typography>
-          <Typography variant="h6" className={classes.navTitle}>
-            TV Shows
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <NavBar />
       <Container maxWidth="lg" className={classes.main}>
-        <Box mb={2}>
-          <PopularList items={popularMovies} listTitle="Popular Movies" />
-        </Box>
-        <Box mb={2}>
-          <PopularList items={popularTVShows} listTitle="Popular TV Shows" />
-        </Box>
+        <Routes>
+          <Route
+            exact
+            path="/movies"
+            element={
+              <Box mb={2}>
+                <PopularList items={popularMovies} listTitle="Popular Movies" />
+              </Box>
+            }
+          ></Route>
+          <Route
+            exact
+            path="/tv-shows"
+            element={
+              <Box mb={2}>
+                <PopularList
+                  items={popularTVShows}
+                  listTitle="Popular TV Shows"
+                />
+              </Box>
+            }
+          ></Route>
+          ]
+        </Routes>
       </Container>
     </div>
   );
