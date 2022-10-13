@@ -31,10 +31,9 @@ function NavBar() {
     <>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar className={classes.toolBar}>
-          <div className={classes.logo}>
+          <Link to="/" className={classes.logo}>
             <Logo />
-          </div>
-
+          </Link>
           <Link to="/movies">
             <Typography variant="h6" className={classes.navTitle}>
               Movies

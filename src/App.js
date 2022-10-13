@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 
+import Home from "./Home";
 import PopularList from "./PopularList";
 import NavBar from "./NavBar";
 import { Routes, Route } from "react-router-dom";
@@ -61,6 +62,7 @@ function App() {
       <NavBar />
       <Container maxWidth="lg" className={classes.main}>
         <Routes>
+          <Route exact path="/" element={<Home />} />
           <Route
             exact
             path="/movies"
@@ -82,7 +84,6 @@ function App() {
               </Box>
             }
           ></Route>
-          ]
         </Routes>
       </Container>
     </div>
